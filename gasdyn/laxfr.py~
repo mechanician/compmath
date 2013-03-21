@@ -1,0 +1,21 @@
+import numpy as np
+
+r0 = np.array([1,1]) # density 
+u0 = np.array([0,0]) # velocity
+p0 = np.array([3,1]) # pressure
+
+gamma = 1.4
+N = 10
+h = 1.0/N
+tau = 0.001
+q = np.zeros((3,N))
+
+for i in xrange(N/2):
+    E = p0[0]/(r0[0]*(gamma - 1))
+    q[i] = np.array([r0[0], r0[0]*u[0], r0[0]*E])
+
+for i in xrange(N/2+1, N):
+    E = p0[1]/(r0[1]*(gamma - 1))
+    q[i] = np.array([r0[1], r0[1]*u[1], r0[1]*E])
+
+print q
